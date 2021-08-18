@@ -17,7 +17,7 @@ function getValues(){
         displayNumbers(numbers);
 
     }else{
-        alert("You must enter integers");
+        alert("You must enter numbers!");
     }
  
 }
