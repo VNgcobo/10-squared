@@ -41,7 +41,7 @@
                        <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                       <a class="nav-link" target="_blank" href="https://github.com/VNgcobo/10-squared">Git Repo</a>
                    </li>
                    <li class="nav-item">
                        <a class="nav-link" target="_blank" href="#">About</a>
@@ -53,21 +53,78 @@
     <!-- ==Main Section== -->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for 10Squared</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for 10 Squared</h2>
             <div class="row row-cols-1 rol-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            function helloWorld(){
-                                alert("hello World");
+                            //get the values from the page
+                            //starts or controller function
+                            function getValues(){
+                                //get values from the page
+                                let startValue = document.getElementById("startValue").value;
+                                let endValue = document.getElementById("endValue").value;
+                                
+                                //we need to validate our input
+                                //parse into Integers
+                                startValue = parseInt(startValue);
+                                endValue = parseInt(endValue);
+                            
+                                if(Number.isInteger(startValue) && Number.isInteger(endValue)){
+                                    //we call generateNumbers
+                                   let numbers = generateNumbers(startValue,endValue);
+                                    //we call displayNumbers
+                                    displayNumbers(numbers);
+                            
+                                }else{
+                                    alert("You must enter integers");
+                                }
+                             
+                            }
+                            
+                            //generate numbers from startValue to the endValue
+                            //logic function(S)
+                            function generateNumbers(sValue, eValue){
+                            
+                                let numbers = [];
+                                //we want to get all numbers from start to end
+                                for(let index = sValue; index <= eValue; index++){
+                            
+                                    //this will execute in a loop until index = eValue
+                                    numbers.push(index);
+                                }
+                                return numbers;
+                            }
+                            
+                            //display the numbers and mark even numbers bold
+                            //display or view functions
+                            function displayNumbers(numbers){
+                                let templateRows = "";
+                            
+                                for (let index = 0; index < numbers.length; index++) {
+                                    let className = "even";
+                            
+                                    let number = numbers[index];
+                            
+                                    if(number % 2 == 0){
+                                        className = "even";
+                                    }
+                                    else{
+                                        className = "Odd"
+                                    }
+                            
+                                    templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+                                }
+                                // This does render correctly with Prism see the source
+                                document.getElementById("results").innerHTML = templateRows;
                             }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
                     <p>The Code Is Structured In One Function</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <h3 class="fw-bold">10 Squared</h3>
+                    <p>10 Squared is an app which displays even numbers in bold after the user inputs two integers.</p>
                 </div>
             </div>
         </div>
