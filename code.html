@@ -122,20 +122,31 @@
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code Is Structured In One Function</p>
+                    <p>The Code Is Structured In Three Functions</p>
                     <h3 class="fw-bold">10 Squared</h3>
                     <p>10 Squared is an app which displays even numbers in bold after the user inputs two integers.</p>
-                    <h4>Setting Up the UI</h4>
-                    <p></p>
-                    <h4>The Build...</h4>
-                    <p>The first thing we had to do was to declare two variables (startValue and endValue). 
-                        Then, parse (convert) the variables into integer data types so that none of the user inputs are stored as string types.
+                    <h4>getValues</h4>
+                    <p> The first thing we had to do was to declare two variables (startValue and endValue). 
+                        Then, parse (convert) the variables into integer data types so that none of the user inputs are stored as string types. 
+                        If the user does not enter an integer (i.e.: a string), then the app will display an alert which prompts the user to enter a number.
                     </p>
-                    <h5>True or false..?</h5>
-                    <p>Given that both user inputs are integers, the logic function is called (generateNumbers) with the parameters (sValue, eValue) being defined. 
-                        Now since we want to display all the numbers between the start value and end value, we need to create a For Loop - until the index is equal to the end value, and then return those values to the screen.
+                    
+                    <h4>generateNumbers</h4>
+                    <p> Given that both user inputs are integers, the logic function is called (generateNumbers) with the parameters (sValue, eValue) being defined. 
+                        Now since we want to display all the numbers between the start value and end value, we need to create a For Loop - until the index is equal to the end value, 
+                        and then return those values to the screen.
                     </p>
-                    <h5>DOM Manipulation..</h5>
+                    <h4>displayNumbers</h4>
+                    <P>
+                        ...to display the results to the screen in table format, as laid out in the html page, we declare variable "templateRows" as an empty string. 
+                        Then we loop over the array using a for loop in which we use a template literal - replacing the table cell value with the value of variable "number".  
+                        The returned values outside the loop will be put under the "tbody" tag with the id "results".
+                    </P>
+                    <p>
+                        To format the even numbers bold, we start by declaring a variable "className" and assign it a value "even". 
+                        Then we create a Boolean Statement to see if the value is even (%2 == 0). Then, we add this variable as a class in the html within the template literal. 
+                        To bold this, we go to our stylesheet and call the class "even" and set the font-weight to bold.  
+                    </p>
                 </div>
             </div>
         </div>
